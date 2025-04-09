@@ -1,7 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
+
+const apiBase = process.env.REACT_APP_API_URL;
 
 export async function getRoutesFromApi(startCity, destination) {
-    const baseURL = "http://localhost:8080/booking/"
-    let incoming = await axios.post(baseURL, { startCity, destination })
-    return incoming
+    const apiUrl = `${apiBase}/booking/`;
+    const response = await axios.post(apiUrl, { startCity, destination });
+    return response;
 }
